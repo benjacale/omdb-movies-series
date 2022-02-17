@@ -11,7 +11,7 @@ import "../index.css";
 
 
 const Register = () => {
-    const {lastLocation, setLastLocation} = useContext(LastLocationContext);
+    const {setLastLocation}               = useContext(LastLocationContext);
     const history                         = useHistory();
     const name                            = useInput();
     const surname                         = useInput();
@@ -57,7 +57,6 @@ const Register = () => {
                     Notification.errorMessage(`The email already exists.`);
                 }
                 else {
-                    console.log("PASA POR ACA 666 ?!?!?!")
                     Notification.successMessage("User created successfully");
                     history.push("/sign-in")
                 }
@@ -74,71 +73,78 @@ const Register = () => {
             </div>
             
             <div className="container2">
-                <form className="signUpContainer" onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <input
-                            type="text"
-                            className="form-control bg-dark text-white border border-secondary signUpInputs nameInput"
-                            placeholder="Name*"
-                            //value={name}
-                            //onChange={handleNameChange}
-                            {...name}
-                            required  />
-                    </div>
-                   
-                    <div className="mb-3">
-                        <input
-                            type="text"
-                            className="form-control bg-dark text-white border border-secondary signUpInputs nameInput"
-                            placeholder="Surname*"
-                            //value={name}
-                            //onChange={handleNameChange}
-                            {...surname}
-                            required  />
-                    </div>
+                <div className="pt-4 ps-1 pe-1 ms-4 me-4 mt-2" style={{backgroundColor:"#3d4146", borderRadius:"30px"}}>
 
-                    <div className="mb-3">
-                        <input
-                            type="email"
-                            className="form-control bg-dark text-white border border-secondary signUpInputs emailInput"
-                            aria-describedby="emailHelp"
-                            placeholder="E-mail*"
-                            //value={email}
-                            //onChange={handleEmailChange}
-                            {...email}
-                            required />
-                    </div>
-
-                    <div className="mb-3">
-                        <div className="input-group mb-3">
+                    <form className="signUpContainer" onSubmit={handleSubmit}>
+                        <div className="mb-3">
                             <input
-                                type={showPassword? "text" : "password"}
-                                className="form-control bg-dark text-white border border-secondary signUpInputs passwordInput"
-                                placeholder="Password*"
-                                //value={password}
-                                //onChange={handlePassChange}
-                                {...password}
-                                required 
-                            />
-                            <button className="btn btn-outline-secondary seePassword" type="button" id="button-addon2" onClick={handleShowClick}>
-                                {showPassword ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
+                                type="text"
+                                className="form-control text-white border border-secondary signUpInputs nameInput"
+                                style={{backgroundColor:"#3d4146"}}
+                                placeholder="Name*"
+                                //value={name}
+                                //onChange={handleNameChange}
+                                {...name}
+                                required  />
+                        </div>
+                    
+                        <div className="mb-3">
+                            <input
+                                type="text"
+                                className="form-control text-white border border-secondary signUpInputs nameInput"
+                                style={{backgroundColor:"#3d4146"}}
+                                placeholder="Surname*"
+                                //value={name}
+                                //onChange={handleNameChange}
+                                {...surname}
+                                required  />
+                        </div>
+
+                        <div className="mb-3">
+                            <input
+                                type="email"
+                                className="form-control text-white border border-secondary signUpInputs emailInput"
+                                style={{backgroundColor:"#3d4146"}}
+                                aria-describedby="emailHelp"
+                                placeholder="E-mail*"
+                                //value={email}
+                                //onChange={handleEmailChange}
+                                {...email}
+                                required />
+                        </div>
+
+                        <div className="mb-3">
+                            <div className="input-group mb-3">
+                                <input
+                                    type={showPassword? "text" : "password"}
+                                    className="form-control text-white border border-secondary signUpInputs passwordInput"
+                                    style={{backgroundColor:"#3d4146"}}
+                                    placeholder="Password*"
+                                    //value={password}
+                                    //onChange={handlePassChange}
+                                    {...password}
+                                    required 
+                                />
+                                <button className="btn btn-outline-secondary seePassword" type="button" id="button-addon2" onClick={handleShowClick}>
+                                    {showPassword ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="mb-3">
+                            <button type="submit" className={`btn btn-warning w-100 m-0 mt-4 ${!name.value || !surname.value || !email.value || !password.value ? 'disabled' : null}`}>
+                            Sign up <i className="fa-solid fa-user-plus ps-1"></i>
                             </button>
                         </div>
-                    </div>
 
-                    <div className="mb-3">
-                        <button type="submit" className={`btn btn-warning w-100 m-0 mt-4 ${!name.value || !surname.value || !email.value || !password.value ? 'disabled' : null}`}>
-                        Sign up <i className="fa-solid fa-user-plus ps-1"></i>
-                        </button>
-                    </div>
+                        <div className="mb-3">
+                        <Link to="/sign-in" className="text-white" style={{textDecoration:"none"}}>
+                            <p style={{fontSize:"0.8em"}}>Already have an account? Log in <i className="fa-solid fa-arrow-right-to-bracket ps-1"></i> </p>
+                        </Link>
+                        </div>
 
-                    <div className="mb-3">
-                    <Link to="/sign-in" className="text-white" style={{textDecoration:"none"}}>
-                        <p style={{fontSize:"0.8em"}}>Already have an account? Log in <i className="fa-solid fa-arrow-right-to-bracket ps-1"></i> </p>
-                    </Link>
-                    </div>
-
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
 
