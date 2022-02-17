@@ -8,18 +8,33 @@ class User extends Sequelize.Model {}
 User.init({
     name: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            is: [/^[A-Za-z\s]+$/g]
+        }
+    },
+    
+    surname: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            is: [/^[A-Za-z\s]+$/g]
+        }
     },
 
     email: {
         type: Sequelize.STRING,
         allowNull: false,
-        validate: {isEmail: true}
+        validate: {isEmail: true},
+        unique: [true, "Email already exists."]
     },
 
     password: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        validate: {
+            len: [8, 20]
+        }
     },
 
     salt: {
@@ -43,7 +58,7 @@ User.prototype.generarHash = function(plainPass, salt) {
 
 // Hook.
 User.addHook("beforeCreate", (user) => {
-    return bcrypt.genSalt(16)
+    return bcrypt.genSalt(10)
     .then(salt => {
         user.favourites = [];
         user.salt = salt;

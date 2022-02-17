@@ -1,12 +1,12 @@
 // server configs
 const express       = require("express");
-const app           = express(); // Creamos una instancia de una app.
+const app           = express();                 // Creamos una instancia de una app.
 const db            = require("./config/db");
-const router        = require("./routes/index");
+const routes        = require("./routes/index");
 const cookieParser  = require("cookie-parser");
 const session       = require("express-session") // Me permite guardar sesiones de los usuarios loggeados.
 const passport      = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
+const localStrategy = require("./config/localStrategy");
 const User          = require("./models/User");
 const cors          = require ("cors");
 
@@ -35,38 +35,10 @@ app.use(passport.session());
 
 
 // Validamos si las credenciales son correctas.
-passport.use(
-    new LocalStrategy(
-        {
-        usernameField: "email",
-        passwordField: "password",
-        },
-        
-        function (email, password, done) {
-            // Busca el usuario de "email" pasado como argumento y comprueba que la pass sea correcta.
-            User.findOne( {where: {email}} )
-            .then(user => {
-                // User not found.
-                if(!user) return done(null, false, {message: 'Incorrect username.'}); 
-
-                // Si hay un usuario, valido la pass usando el mét. de instancia agregado al modelo User.
-                user.generarHash(password, user.salt)
-                .then(hash => {
-                    // Si la pass no coincide.
-                    if(hash !== user.password) return done(null, false, {message: 'Incorrect password.'});
-                    
-                    // Si la pass coincide.
-                    done(null, user);
-                })
-            })
-            .catch(done);
-        }
-    )
-);
+passport.use(localStrategy);
 
 
 // Ahora hay que explicarle a Passport cómo tiene que trabajar la sesión. Porque una vez que él valide que es correcto, va a querer crear una Cookie para enviar al Cliente y guardar en express-sessions una nueva sesion que diga "esta persona estuvo loggeada". Cómo hacemos eso? Con el serialize() y deserialize().
-
 // Guardamos el id en la sesión (escribimos la cookie).
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -82,7 +54,7 @@ passport.deserializeUser(function(id, done) {
 
 
 // Redirigimos todos los pedidos con /api.
-app.use("/api", router);
+app.use("/api", routes);
 
 
 // Sincronizamos la DB antes de levantar el servidor.

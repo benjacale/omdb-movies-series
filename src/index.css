@@ -1,5 +1,7 @@
 body {
-  margin: 0 50px;
+  margin-top: 85px;
+  color: white;
+  background-color: #212529;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -19,12 +21,19 @@ code {
   border-radius: 5px;
 }
 
+.container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  border-radius: 10px;
+}
 .container2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   border-radius: 10px;
+  text-align: center;
 }
 
 .titleFavMov {
@@ -50,19 +59,24 @@ code {
   letter-spacing: 1px;
 }
 
-span{
-  color: #007bff;
+.container4 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 button {
   margin: 0px 10px;
 }
 
-.lupa {
+.logo {
   padding: 5px;
   margin: 5px 5px;
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
 }
 
@@ -74,7 +88,6 @@ button {
 }
 
 .singlePoster {
-  border-radius: 10px;
   margin-top: 50px;
   margin-bottom: 50px;
   margin-left: 30px;
@@ -112,9 +125,9 @@ button {
 
 .posters {
   border-radius: 15px;
-  height: 320px;
-  width: 230px;
-  margin: 10px;
+  height: 300px;
+  width: 200px;
+  margin: 15px;
 }
 
 .posters:hover {
@@ -138,4 +151,92 @@ button {
 
 .btnAddFav:hover {
   cursor: pointer;
+}
+
+#omdbTitulo:hover{
+  text-decoration: none;
+  color: #007bff;
+}
+
+#btnLogin:hover{
+  background-color: #212529;
+  color: #ffc107;
+}
+
+#btnUser:hover{
+  background-color: #212529;
+  color: #007bff;
+}
+
+.signUpInputs{
+  padding: 10px 10px 10px 70px;
+}
+
+.nameInput{ 
+  background-image: url(./utils/images/user.png) !important;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position: 0.5em center;
+}
+
+.emailInput{ 
+  background-image: url(./utils/images/email.png) !important;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position: 0.5em center;
+}
+
+.passwordInput{ 
+  background-image: url(./utils/images/lock.png) !important;
+  background-size: 35px 35px;
+  background-repeat: no-repeat;
+  background-position: 0.5em center;
+}
+
+.searchInput{ 
+  background-image: url(./utils/images/search.png) !important;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  background-position: 0.5em center;
+  padding-left: 60px;
+}
+
+.seePassword{
+  margin-right: 0;
+}
+
+.favouriteIcon:hover{
+  cursor: pointer;
+}
+
+.profileCards{
+  border-radius: 25px;
+}
+
+.profileCards:hover{
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.2s ease;
+  border-radius: 15px;
+}
+
+.usersFoundCards{
+  border-radius: 40px !important;
+  background: linear-gradient(140deg, #be8f00, rgb(67, 84, 110), rgb(0, 0, 0));
+}
+
+.usersFoundCards:hover{
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: all 0.2s ease;
+  border-radius: 55px;
+}
+
+.underConstruction{
+  background-image: url(./utils/images/Under_Construction_Sign.jpg);
+}
+
+h1, h2, h3{
+  font-family: 'Rammetto One', cursive;
 }

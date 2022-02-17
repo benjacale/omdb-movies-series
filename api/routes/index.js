@@ -1,16 +1,11 @@
-const express         = require("express");
-const router          = express.Router();
-const userRouter      = require("./users");
-const authRouter      = require("./auth");
-//const favouriteRouter = require("./favourite");
+const express = require("express");
+const users   = require("./users");
+const auth    = require("./auth");
+const router  = express.Router();
 
 // Estamos en "/api".
-router.use("/users", userRouter);
-router.use("/auth", authRouter);
-//router.use("/favourite", favouriteRouter);
-
-
-
+router.use("/users", users);
+router.use("/auth", auth);
 
 
 module.exports = router;
