@@ -59,15 +59,14 @@ app.use("/api", routes);
 
 // Sincronizamos la DB antes de levantar el servidor.
 // Para dropear la DB, le colocamos el valor TRUE a force.
-const PORT = 3001;
 
 db.sync({force: false})
 .then( () => {
     // Recién ahora estamos seguros que la conexión fue exitosa.
     console.log("Connected to database OMDB!");
 
-    app.listen(PORT, () => {
-        console.log(`Server listening on http://localhost:${PORT}/`);
+    app.listen(process.env.PORT || 3001, () => {
+        console.log(`Server listening on ${process.env.PORT || 3001}`);
     });
 })
 .catch(console.error);
