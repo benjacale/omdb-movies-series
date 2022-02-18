@@ -1,9 +1,8 @@
 {
-  "name": "25-omdb",
+  "name": "omdb",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.5.0",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.1",
     "bootstrap-icons": "^1.8.1",
@@ -21,17 +20,14 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
-    "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
     "sequelize": "^6.5.0",
     "sweetalert2": "^11.4.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "concurrently 'npm run server' 'npm run client'",
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
-    "build": "react-scripts build",
-    "seed": "node api/seed"
+    "build": "react-scripts build"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
