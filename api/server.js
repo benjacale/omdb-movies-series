@@ -9,7 +9,7 @@ const passport      = require("passport");
 const localStrategy = require("./config/localStrategy");
 const User          = require("./models/User");
 const cors          = require ("cors");
-
+const path          = require('path');
 app.use(cors());
 
 // Middleware Global. Para ello, usamos el método use.
@@ -55,6 +55,13 @@ passport.deserializeUser(function(id, done) {
 
 // Redirigimos todos los pedidos con /api.
 app.use("/api", routes);
+
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 
 // Sincronizamos la DB antes de levantar el servidor.
