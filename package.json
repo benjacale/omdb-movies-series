@@ -24,7 +24,7 @@
     "sweetalert2": "^11.4.0"
   },
   "scripts": {
-    "start": "concurrently 'npm run server' 'npm run client'",
+    "start": "node server.js",
     "server": "nodemon api/server.js",
     "client": "react-scripts start",
     "build": "react-scripts build"
