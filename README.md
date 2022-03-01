@@ -4,7 +4,7 @@
 
 ### 💡 General features:
 
-- Search movies & series in an API (www.omdbapi.com) and list them.
+- Search movies & series consuming the API (www.omdbapi.com) and list them.
 - 100% responsive.
 - View the details of a particular movie/serie.
 - Create new users.
