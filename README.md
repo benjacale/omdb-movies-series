@@ -18,7 +18,7 @@
 - View other users' profile and their favourite list.
 - Session persistence.
 
-### 👩‍💻 Register form features.
+### 📝 Register form features.
 
 - Name & Surname: must only contain letters.
 - Email: must be unique.
