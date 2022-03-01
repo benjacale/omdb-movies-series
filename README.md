@@ -1,4 +1,4 @@
-# 🚀 OMDB - Movies & Series
+# 🚀 OMDB - Movies & Series searcher
 🌐 https://omdb-movies-series.herokuapp.com/
 
 
