@@ -1,23 +1,46 @@
 ![logop5](https://p5-hall-of-fame.s3.amazonaws.com/p5logo.png)
 
-# OMDB - Movies/Series searcher 
+# 🚀 OMDB - Movies & Series searcher 🚀
+🌐 https://omdb-movies-series.herokuapp.com/
 
-### Must have.
+### 💡 General features:
 
-- Buscar películas y listarlas.
-- Poder ver los detalles de una película en particular.
-- Crear Usuarios.
-- Loggearse y desloggearse con un usuario.
+- Search movies & series in an API (www.omdbapi.com) and list them.
+- 100% responsive.
+- View the details of a particular movie/serie.
+- Create new users.
+- Users login and logout.
 
-### Should have.
+### 👩‍💻 Features for Registered Users.
 
-- Poder agregar una película a tu lista de favoritos.
-- Ver tu lista de películas favoritas.
-- Poder sacar películas de tu lista de favoritos.
+- Add and remove movies/series to your favourite list.
+- View your favourite list.
+- Search other users.
+- View other users' profile and their favourite list.
+- Session persistence.
 
-### Nice to have.
+### 👩‍💻 Register form features.
 
-- Buscar Usuarios.
-- Ver el perfil de un usuario con sus películas favoritas.
+- Name & Surname: must only contain letters.
+- Email: must be unique.
+- Password: must contain between 8 and 20 characters.
 
-Para más información busquen en [Pledu](https://pledu.plataforma5.la/modules/e2b1ace6-8de6-4b10-a025-647583402a8a)
+### 🚧 Under construction .
+
+- User profile edition.
+
+###  Tech Stack:
+
+####  Front-end:
+- React.js
+- ContextAPI
+- Bootstrap 
+
+####  Back-end:
+- Node.js
+- Express
+- Postgres (Sequelize)
+- Passport.js 
+
+
+
