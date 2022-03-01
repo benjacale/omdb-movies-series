@@ -1,5 +1,6 @@
-# 🚀 OMDB - Movies & Series searcher 🚀
+# 🚀 OMDB - Movies & Series
 🌐 https://omdb-movies-series.herokuapp.com/
+
 
 ### 💡 General features:
 
@@ -27,8 +28,8 @@
 
 - User profile edition.
 
-###  Tech Stack:
 
+### 💻 Tech Stack:
 ####  Front-end:
 - React.js
 - ContextAPI
